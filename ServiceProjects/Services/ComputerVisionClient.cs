@@ -9,7 +9,7 @@ namespace ServiceProjects.Services
     public class ComputerVisionClient : IComputerVisionClient
     {
         private static string predictionKey { get; } = "d8fab3898adc430c80ad1669c875c4ff";
-        private static Guid projectId { get; } = new Guid("734d1bd7-7901-4a7f-b4d9-6f4a99ee3f37");
+        private static Guid projectId { get; } = new Guid("f263980e-3b19-49b8-8444-d97a0b67ed2b");
         private PredictionEndpoint endpoint;
         public ComputerVisionClient()
         {
