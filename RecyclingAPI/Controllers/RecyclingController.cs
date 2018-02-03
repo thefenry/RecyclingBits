@@ -3,6 +3,7 @@ using ServiceProjects.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,11 +23,26 @@ namespace RecyclingAPI.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-   
 
         [HttpPost]
         [ActionName("Prediction")]
-        public string PredictionAsync()
+        public async Task<string> PredictionAsync()
+        {
+            var httpRequest = HttpContext.Current.Request;
+            foreach (string file in httpRequest.Files)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
+                MemoryStream ms = new MemoryStream();
+                httpRequest.InputStream.CopyTo(ms);
+                byte[] data = ms.ToArray();
+                return await CSPrediction.MakePredictionRequest(data);
+            }
+            return "";
+        }
+
+        [HttpPost]
+        [ActionName("GetPrediction")]
+        public string GetPrediction()
         {
             var httpRequest = HttpContext.Current.Request;
 

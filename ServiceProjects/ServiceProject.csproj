@@ -54,6 +54,7 @@
     <Compile Include="Interfaces\IKeywordGeneratorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ComputerVisionService.cs" />
+    <Compile Include="Services\CSPrediction.cs" />
     <Compile Include="Services\KeywordGeneratorService.cs" />
   </ItemGroup>
   <ItemGroup>
