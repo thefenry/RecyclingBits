@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecyclingAPI", "RecyclingAP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageIngestionApp", "ImageIngestionApp\ImageIngestionApp.csproj", "{20B245FA-B4A8-4027-A845-824DB4665F42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceProjects", "ServiceProjects\ServiceProjects.csproj", "{D737B1F3-066C-4D70-856D-577B7D84C65D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceProject", "ServiceProjects\ServiceProject.csproj", "{D737B1F3-066C-4D70-856D-577B7D84C65D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
