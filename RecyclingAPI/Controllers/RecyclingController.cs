@@ -1,5 +1,4 @@
-﻿using Microsoft.Cognitive.CustomVision.Prediction.Models;
-using ServiceProjects;
+﻿using ServiceProjects;
 using ServiceProjects.Services;
 using System;
 using System.Collections.Generic;
@@ -27,7 +26,7 @@ namespace RecyclingAPI.Controllers
 
         [HttpPost]
         [ActionName("Prediction")]
-        public IList<ImageTagPredictionModel> PredictionAsync()
+        public string PredictionAsync()
         {
             var httpRequest = HttpContext.Current.Request;
 
@@ -39,13 +38,14 @@ namespace RecyclingAPI.Controllers
                 using (var stream = postedFile.InputStream)
                 {
                     var computerVisionClient = new ComputerVisionPredicationClient();
-                    var result = computerVisionClient.GetResult(stream);
-                    return result.Predictions;
+                    //var result = computerVisionClient.GetResult(stream);
+                    //return result.Predictions;
                 }
 
             }
 
-            return default(IList<ImageTagPredictionModel>);
+            //return default(IList<ImageTagPredictionModel>)
+            return null;
         }
     }
 }
