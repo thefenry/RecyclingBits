@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageIngestionApp", "ImageI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceProject", "ServiceProjects\ServiceProject.csproj", "{D737B1F3-066C-4D70-856D-577B7D84C65D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageIngestionApplication", "CustomVision.Sample\ImageIngestionApplication.csproj", "{6B47D67A-98D6-4465-B663-65150F3DE27A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D737B1F3-066C-4D70-856D-577B7D84C65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D737B1F3-066C-4D70-856D-577B7D84C65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D737B1F3-066C-4D70-856D-577B7D84C65D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B47D67A-98D6-4465-B663-65150F3DE27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B47D67A-98D6-4465-B663-65150F3DE27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B47D67A-98D6-4465-B663-65150F3DE27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B47D67A-98D6-4465-B663-65150F3DE27A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
