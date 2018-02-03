@@ -1,5 +1,7 @@
 import React, {Component } from 'react';
 
+import LogoImgSmall from '../img/recycle_bits_logo_small.png';
+
 class Footer extends Component {
 /*======================================================================
 // This will render the Footer at the bottom of each page.
@@ -7,7 +9,8 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <p>Copyright © 2018 Recycling Bits</p>
+        <img src={LogoImgSmall} alt='' />
+        <p>Copyright © 2018 Recycle Bits</p>
       </div>
     );
   }
