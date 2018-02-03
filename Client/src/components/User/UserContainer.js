@@ -149,7 +149,6 @@ There are about 50 different groups of plastics, with hundreds of different vari
         <Pie data={data02} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#42d4f4"/>
         <Tooltip/>
       </PieChart>
-
       </div>
 
           </Grid.Column>
