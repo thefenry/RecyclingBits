@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Map, TileLayer, Marker, Popup } from '../../src'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default class UserMap extends Component {
+ class UserMap extends Component {
   state = {
     lat: 51.505,
     lng: -0.09,

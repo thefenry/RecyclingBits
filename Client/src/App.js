@@ -5,6 +5,8 @@ import { BrowserRouter,
 
 import HomeContainer from './components/HomeContainer';
 import UserContainer from './components/User/UserContainer';
+import ScoreContainer from './components/User/ScoreContainer';
+
 import './css/style.css';
 
 /*======================================================================
@@ -16,7 +18,7 @@ const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path={'/'} component={HomeContainer} />
-      <Route exact path={'/user'} component={UserContainer} />
+      <Route  path={'/user'} component={UserContainer} />
       <Route component={HomeContainer} />
     </Switch>
   </BrowserRouter>
