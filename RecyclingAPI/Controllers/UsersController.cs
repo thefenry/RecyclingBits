@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 namespace RecyclingAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ValuesController : ApiController
+    public class UsersController : ApiController
     {
         // GET api/values
         public IEnumerable<string> Get()
