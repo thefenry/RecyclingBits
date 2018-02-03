@@ -18,7 +18,7 @@ namespace ImageIngestionApp
 
             AnalysisResult analysisResult = computerVisionClient.AnalyzeImageAsync("https://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=8389163").Result;
 
-            List<string> keywords = keywordGeneratorService.GenerateMetaVisionTags(analysisResult);
+            keywordGeneratorService.GenerateMetaVisionTags(analysisResult);
 
             Console.WriteLine(analysisResult);
             Console.ReadLine();
