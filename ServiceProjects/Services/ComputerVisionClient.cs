@@ -1,21 +1,28 @@
 ﻿using Microsoft.Cognitive.CustomVision.Prediction;
+using Microsoft.Cognitive.CustomVision.Prediction.Models;
 using ServiceProjects.Interfaces;
+using System;
+using System.IO;
 
 namespace ServiceProjects.Services
 {
-    class ComputerVisionClient: IComputerVisionClient
+    public class ComputerVisionClient : IComputerVisionClient
     {
+        private static string predictionKey { get; } = "d8fab3898adc430c80ad1669c875c4ff";
+        private static Guid projectId { get; } = new Guid("734d1bd7-7901-4a7f-b4d9-6f4a99ee3f37");
+        private PredictionEndpoint endpoint;
         public ComputerVisionClient()
         {
-            // Create a prediction endpoint, passing in the obtained prediction key
-            //PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
-            //var testImage = new object();
-            //// Make a prediction against the new project
-            ////Console.WriteLine("Making a prediction:");
-            ////var result = endpoint.PredictImage(project.Id, testImage);
-            //endpoint.PredictImageUrlWithHttpMessagesAsync()
-            //ServiceKey
-        }
+            endpoint = new PredictionEndpoint()
+            {
+                ApiKey = predictionKey,
 
+            };
+        }
+        public ImagePredictionResultModel GetResult(Stream imageStr)
+        {
+            var result = endpoint.PredictImage(projectId, imageStr);
+            return result;
+        }
     }
 }

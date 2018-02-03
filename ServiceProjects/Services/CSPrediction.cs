@@ -14,22 +14,11 @@ namespace ServiceProjects
         private static string _key { get; } = "d8fab3898adc430c80ad1669c875c4ff";
         private static string _url { get; } = "http://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
 
-        //static byte[] GetImageAsByteArray(string imageFilePath)
-        //{
-        //    FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-        //    BinaryReader binaryReader = new BinaryReader(fileStream);
-        //    return binaryReader.ReadBytes((int)fileStream.Length);
-        //}
-
         public static async Task<string> MakePredictionRequest(byte[] byteData)
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Prediction-Key", _key);
-
-
             HttpResponseMessage response;
-
-            //byte[] byteData = GetImageAsByteArray(imageFilePath);
 
             using (var content = new ByteArrayContent(byteData))
             {
