@@ -1,8 +1,10 @@
 import React, {Component } from 'react';
 import Button from 'react-bootstrap/lib/Button';
 
+import Details from './Details';
 import Footer from './Footer';
-import StockImg from '../img/stock_img.jpg';
+import DefaultImg from '../img/default_img.jpg';
+import LogoImg from '../img/recycle_bits_logo.png';
 
 class HomeContainer extends Component {
 
@@ -16,7 +18,9 @@ class HomeContainer extends Component {
             displayConfirm: false,
             displayResults: false,
             displayLoading: false,
+            displayError: false,
             uploadedImg:[],
+            itemRecyclable: false
         };
       }
 
@@ -31,7 +35,6 @@ class HomeContainer extends Component {
             displayResults: false,
             displayLoading: false,
           })
-        console.log("Upload Image!");
     }
 
     /*======================================================================
@@ -45,7 +48,6 @@ class HomeContainer extends Component {
             displayResults: true,
             displayLoading: false,
           })
-        console.log("New Image!");
     }
 
     /*======================================================================
@@ -59,7 +61,6 @@ class HomeContainer extends Component {
             displayResults: false,
             displayLoading: false,
           })
-        console.log("Results Image!");
     }
 
     /*======================================================================
@@ -69,28 +70,42 @@ class HomeContainer extends Component {
         return (
         <div className="home-container">
             <div className="header">
-                <h1>Recycle Bits</h1>
+                <img src={LogoImg} alt='' />
             </div>
+            
             <div className="main-body">
                 <div className="main-upload">
                     {(this.state.displayUpload)
-                        ? <Button bsStyle="primary" className="upload-img-btn btn" onClick={this.uploadImg}>Upload Image</Button>
+                        ? <Button bsStyle="primary" className="upload-btn btn" onClick={this.uploadImg}>Upload Image</Button>
                         : <p></p> }
                 </div>
                 <div className="main-confirm">
                     {(this.state.displayConfirm)
-                        ? <img src={StockImg} alt='' />
+                        ? <img src={DefaultImg} alt='' />
                         : <p></p> }
                     {(this.state.displayConfirm)
-                        ? <Button bsStyle="primary" className="upload-img-btn btn" onClick={this.confirmImg}>Confirm Image</Button>
+                        ? <Button bsStyle="primary" className="confirm-btn btn" onClick={this.confirmImg}>Confirm Image</Button>
                         : <p></p> }
                 </div>
                 <div className="main-results">
                     {(this.state.displayResults)
-                        ? <img src={StockImg} alt='' />
+                        ? <img src={DefaultImg} alt='' />
                         : <p></p> }
                     {(this.state.displayResults)
-                        ? <Button bsStyle="primary" className="upload-img-btn btn" onClick={this.newImg}>Start Over</Button>
+                        ? <Details recyclable={this.state.itemRecyclable} />
+                        : <p></p> }
+                    {(this.state.displayResults)
+                        ? <Button bsStyle="primary" className="results-btn btn" onClick={this.newImg}>Start Over</Button>
+                        : <p></p> }
+                </div>
+                <div className="main-loading">
+                    {(this.state.displayLoading)
+                        ? <p className="loader"></p>
+                        : <p></p> }
+                </div>
+                <div className="main-error">
+                    {(this.state.displayError)
+                        ? <p>An error has occurred.</p>
                         : <p></p> }
                 </div>
             </div>
