@@ -1,0 +1,93 @@
+/*======================================================================
+// Default styling.
+======================================================================*/
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, rgb(47, 73, 58), rgb(164, 255, 202));
+  font-family: sans-serif;
+}
+
+p, h3, .form-control, .btn {
+  font-family: sans-serif;
+}
+
+::selection {
+  background-color: #75CDDD;
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: #75CDDD;
+  color: #fff;
+}
+
+/*======================================================================
+// Header styling.
+======================================================================*/
+.header h1 {
+  display: block;
+  text-align: center;
+  color: black;
+  background: linear-gradient(to right, rgb(47, 73, 58), rgb(164, 255, 202));
+  font-size: 3em;
+}
+
+/*======================================================================
+// Main body styling.
+======================================================================*/
+.main-body {
+  height: 600px;
+  background-color: 9CC9A8;
+}
+
+/*======================================================================
+// Main button styling.
+======================================================================*/
+.btn {  
+  display: block;
+  height: 100px;
+  width: 240px;
+  outline: none;
+  background-color: #507B91;
+  color: white;
+  font-size: 26px;
+  border: 1px solid black;
+  padding: 0px;
+  margin: 120px auto 0px auto;
+  left: 0px;
+  right: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover {
+  background-color: #75CDDD;
+}
+
+/*======================================================================
+// Footer styling.
+======================================================================*/
+.footer {
+  position: relative;
+  padding: 60px 0px 60px 0px;
+  height: 200px;
+  background-color: black;
+}
+
+.footer img {
+  display: block;
+}
+
+.footer img:hover {
+  border: 2px solid white;
+}
+
+.footer p {
+  position: relative;
+  font-size: 150%;
+  line-height: 140px;
+  text-align: center;
+  color: white;
+}
