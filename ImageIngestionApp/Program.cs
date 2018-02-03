@@ -14,10 +14,13 @@ namespace ImageIngestionApp
         static void Main(string[] args)
         {
             IComputerVisionService computerVisionClient = new ComputerVisionService();
+            IKeywordGeneratorService keywordGeneratorService = new KeywordGeneratorService();
 
-            AnalysisResult response = computerVisionClient.AnalyzeImageAsync("https://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=8389163").Result;
+            AnalysisResult analysisResult = computerVisionClient.AnalyzeImageAsync("https://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=8389163").Result;
 
-            Console.WriteLine(response);
+            keywordGeneratorService.GenerateMetaVisionTags(analysisResult);
+
+            Console.WriteLine(analysisResult);
             Console.ReadLine();
         }
     }
