@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, rgb(47, 73, 58), rgb(164, 255, 202));
+  background: linear-gradient(to right, rgb(47, 73, 58), rgb(164, 255, 202)) !Important;
   font-family: sans-serif;
 }
 

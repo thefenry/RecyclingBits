@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import axios from 'axios';
+import {Form, Grid, Divider, Header, Progress, Card, Image, Input, Menu, Segment  } from 'semantic-ui-react'
 
 import Details from './Details';
 import Footer from './Footer';
@@ -21,7 +22,8 @@ class HomeContainer extends Component {
             displayLoading: false,
             displayError: false,
             imgDetails: [],
-            itemRecyclable: false
+            itemRecyclable: false,
+            activeItem: 'home'
         };
       }
 
@@ -43,7 +45,7 @@ class HomeContainer extends Component {
         
         axios({
             method: 'post',
-            url: 'https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/f263980e-3b19-49b8-8444-d97a0b67ed2b/image?iterationId=b17e369b-d99b-4a3b-b1ea-7ade0bfd1b24',
+            url: 'https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/bfcd4be5-f1c7-42a1-bb76-e22dfea88c2d/image?iterationId=e6dac6d0-a34e-4f22-951d-2436df8e0f85',
             headers: {'Content-Type': 'application/octet-stream',
                 'Prediction-Key': 'd8fab3898adc430c80ad1669c875c4ff'},
             data: data
@@ -101,12 +103,27 @@ class HomeContainer extends Component {
           })
     }
 
+    handleItemClick= () =>
+    {
+       
+    }
     /*======================================================================
     // This will render the home page.
     ======================================================================*/
     render() {
+        const {activeItem} = this.state;
         return (
         <div className="home-container">
+        <Menu pointing secondary className="ct-menu">
+            <a href="/" className="item">Home</a>
+            <a href="/user"  className="item">User</a>
+          <Menu.Item name='Upload Image' active={activeItem === 'UploadImage'} onClick={this.handleItemClick} />
+          <Menu.Item name='Map' active={activeItem === 'map'} onClick={this.handleItemClick} />
+          <Menu.Menu position='right'>
+            <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
+          </Menu.Menu>
+        </Menu>
+
             <div className="header">
                 <img src={LogoImg} alt='' />
             </div>

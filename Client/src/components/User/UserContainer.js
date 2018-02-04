@@ -10,7 +10,7 @@ import UserMap from './UserMap';
 
   class UserContainer extends Component {
 
-   state = { activeItem: 'home', result: [], src: "" }
+   state = { activeItem: 'user', result: [], src: "" }
  getResponse = (fileData) => {
       let constructed_url = "";
       console.log("fileData", fileData)
@@ -69,7 +69,7 @@ const datarecycling = [
   <div>
   <Menu pointing secondary className="ct-menu">
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item name='Ranking' active={activeItem === 'ranking'} onClick={this.handleItemClick} />
+          <Menu.Item name='User' active={activeItem === 'user'} onClick={this.handleItemClick} />
           <Menu.Item name='Upload Image' active={activeItem === 'UploadImage'} onClick={this.handleItemClick} />
           <Menu.Item name='Map' active={activeItem === 'map'} onClick={this.handleItemClick} />
           <Menu.Menu position='right'>
