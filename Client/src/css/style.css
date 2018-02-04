@@ -39,24 +39,29 @@ p, h3, .form-control, .btn {
 ======================================================================*/
 .main-body {
   height: 600px;
-  background-color: 9CC9A8;
 }
 
 /*======================================================================
 // Main button styling.
 ======================================================================*/
-
 input[type="file"] {
   display: block;
+  width: 500px;
   outline: none;
   color: white;
-  font-size: 26px;
+  background-color: #507B91;
+  font-size: 1.6em;
   border: 1px solid black;
   padding: 0px;
-  margin: 100px auto 0px auto;
+  margin: 80px auto 0px auto;
+  left: 0px;
+  right: 0px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type="file"]:hover {
+  background-color: #75CDDD;
 }
 
 .btn {  
@@ -115,14 +120,13 @@ input[type="file"] {
 }
 
 /*======================================================================
-// Image styling.
+// Image  detail styling.
 ======================================================================*/
 .main-details-item {
   display: block;
   text-align: center;
-  list-style-type: none;
+  margin: 40px auto;
   font-size: 2em;
-  margin: 30px;
 }
 
 /*======================================================================
