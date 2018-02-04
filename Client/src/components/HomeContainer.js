@@ -1,5 +1,6 @@
 import React, {Component } from 'react';
 import Button from 'react-bootstrap/lib/Button';
+import axios from 'axios';
 
 import Details from './Details';
 import Footer from './Footer';
@@ -19,10 +20,47 @@ class HomeContainer extends Component {
             displayResults: false,
             displayLoading: false,
             displayError: false,
-            uploadedImg:[],
+            imgDetails: [],
             itemRecyclable: false
         };
       }
+
+      
+    /*======================================================================
+    // This will handle the image selection process as well as posting
+    // to the API.
+    ======================================================================*/
+    selectImg = (e) => {
+        this.setState({
+            imgDetails: []
+        })
+
+        let file = e.target.files[0];
+        console.log(file);
+        
+        let data = new FormData();
+        data.append('file', file);
+        
+        axios({
+            method: 'post',
+            url: 'https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/f263980e-3b19-49b8-8444-d97a0b67ed2b/image?iterationId=b17e369b-d99b-4a3b-b1ea-7ade0bfd1b24',
+            headers: {'Content-Type': 'application/octet-stream',
+                'Prediction-Key': 'd8fab3898adc430c80ad1669c875c4ff'},
+            data: data
+        })
+        .then(function (response) {
+            console.log(response);
+            this.setState({
+                imgDetails: [
+                    response.data.predictions
+                ],
+              })
+            console.log(this.state.imgDetails);
+          })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
 
     /*======================================================================
     // This will handle the image upload process once the user clicks the
@@ -33,8 +71,8 @@ class HomeContainer extends Component {
             displayUpload: false,
             displayConfirm: true,
             displayResults: false,
-            displayLoading: false,
-          })
+            displayLoading: false
+        })
     }
 
     /*======================================================================
@@ -46,8 +84,8 @@ class HomeContainer extends Component {
             displayUpload: false,
             displayConfirm: false,
             displayResults: true,
-            displayLoading: false,
-          })
+            displayLoading: false
+        })
     }
 
     /*======================================================================
@@ -59,7 +97,7 @@ class HomeContainer extends Component {
             displayUpload: true,
             displayConfirm: false,
             displayResults: false,
-            displayLoading: false,
+            displayLoading: false
           })
     }
 
@@ -76,7 +114,12 @@ class HomeContainer extends Component {
             <div className="main-body">
                 <div className="main-upload">
                     {(this.state.displayUpload)
-                        ? <Button bsStyle="primary" className="upload-btn btn" onClick={this.uploadImg}>Upload Image</Button>
+                        ? <input type="file" onChange={this.selectImg} />
+                        : <p></p> }
+                </div>
+                <div className="main-upload">
+                    {(this.state.displayUpload)
+                        ? <Button bsStyle="primary" className="upload-btn btn" onClick={this.uploadImg}>Select Image</Button>
                         : <p></p> }
                 </div>
                 <div className="main-confirm">
@@ -84,7 +127,7 @@ class HomeContainer extends Component {
                         ? <img src={DefaultImg} alt='' />
                         : <p></p> }
                     {(this.state.displayConfirm)
-                        ? <Button bsStyle="primary" className="confirm-btn btn" onClick={this.confirmImg}>Confirm Image</Button>
+                        ? <Button bsStyle="primary" className="confirm-btn btn" onClick={this.confirmImg}>Upload Image</Button>
                         : <p></p> }
                 </div>
                 <div className="main-results">
@@ -92,7 +135,7 @@ class HomeContainer extends Component {
                         ? <img src={DefaultImg} alt='' />
                         : <p></p> }
                     {(this.state.displayResults)
-                        ? <Details recyclable={this.state.itemRecyclable} />
+                        ? <Details imageDetails={this.state.imgDetails} />
                         : <p></p> }
                     {(this.state.displayResults)
                         ? <Button bsStyle="primary" className="results-btn btn" onClick={this.newImg}>Start Over</Button>

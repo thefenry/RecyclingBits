@@ -6,12 +6,10 @@ import React from 'react';
 ========================================================*/
 const Details = props => {
   
-  const isItRecyclable = props.recyclable;
-
   return (
       <div className="main-details">
           <p className="main-details-item">
-              Recyclable: YES
+              Recyclable: Yes
           </p>
       </div> 
   );
