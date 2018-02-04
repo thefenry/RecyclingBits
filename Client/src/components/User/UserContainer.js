@@ -1,16 +1,47 @@
 import React, {Component } from 'react';
-import {Grid, Divider, Header, Progress, Button, Card, Image, Input, Menu, Segment  } from 'semantic-ui-react'
+import {Form, Grid, Divider, Header, Progress, Button, Card, Image, Input, Menu, Segment  } from 'semantic-ui-react'
 import {PieChart, Pie, Legend, Tooltip, BarChart, Bar, Brush, ReferenceLine, XAxis, YAxis, CartesianGrid} from 'recharts';
 import 'semantic-ui-css/semantic.min.css';
 import '../../css/Shared.css';
+import $ from 'jquery'
 
 import UserMap from './UserMap';
 
 
   class UserContainer extends Component {
 
-   state = { activeItem: 'home' }
+   state = { activeItem: 'home', result: [], src: "" }
+ getResponse = (fileData) => {
+      let constructed_url = "";
+      console.log("fileData", fileData)
+     $.ajax({
+      url: "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/f263980e-3b19-49b8-8444-d97a0b67ed2b/image?iterationId=b17e369b-d99b-4a3b-b1ea-7ade0bfd1b24",
+      data: fileData.target.files[0],
+      processData: false,
+      contentType: "application/octet-streama",
+      headers: {
+        'Prediction-key': 'd8fab3898adc430c80ad1669c875c4ff'
+      },
+      type: 'POST',
+      success: function(response) {
+        var result = response["Predictions"];
+          this.setState({result: result});
+        console.log(result);
+      }.bind(this),
+      error: function(error) {
+      }
+    });
+console.log(fileData.target.files)
+          if (fileData.target.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                this.setState({src: e.target.result})
+            }.bind(this);
+
+            reader.readAsDataURL(fileData.target.files[0]);
+        }
+    }
     render() {
       const { activeItem } = this.state;
 
@@ -131,7 +162,37 @@ There are about 50 different groups of plastics, with hundreds of different vari
 </Card>
 </Card.Group>
         <Segment>
+<Form>
+    <Header as='h2' color='purple' content='Get Result' />
 
+    <Form.Group widths='equal'>
+    <input type="file" onChange={this.getResponse}/>
+    </Form.Group> 
+    </Form>
+    <div className="imagePanel">
+   {this.state.src&&
+     <img src={this.state.src} height="200" />
+    } 
+    {this.state.src&&
+    <div className='ui two buttons'>
+      <Button basic color='green'>Recycling</Button>
+      <Button basic color='red'>Not Recycling</Button>
+    </div>
+    }
+
+<div className='tags'>
+    {this.state&&this.state.result.map(x=> 
+      {
+return (
+        <div className='tag'>{x.Tag} ({(x.Probability * 100).toFixed(2)})</div>
+
+    )
+
+      })
+    }
+        </div>
+
+    </div>
     <Divider horizontal>Performance</Divider>
 
 
@@ -166,12 +227,8 @@ There are about 50 different groups of plastics, with hundreds of different vari
           <Bar dataKey="Paper" fill="#9541f4" />
           <Bar dataKey="Plastic" fill="#42d4f4" />
           </BarChart>
-
-          </Grid.Column>
-        
-        </Grid.Row>
-
-      
+          </Grid.Column>       
+        </Grid.Row>     
       </Grid>
         </Segment>
 

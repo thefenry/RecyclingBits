@@ -4,3 +4,24 @@ background: aliceblue !Important;
 font-family: monospace!Important;
 font-size: 20px;
 }
+
+.tags{
+    display: flex;
+    
+
+}
+.tag{
+    margin: 20px;
+   background: rgba(0,0,0,.05);
+    color: rgba(0,0,0,.95);
+    font-weight: 400;
+    box-shadow: none;
+    padding: 20px
+}
+
+.imagePanel{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+    justify-content: center;
+}
