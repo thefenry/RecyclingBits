@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Cognitive.CustomVision.Prediction, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Cognitive.CustomVision.Prediction.1.2.0\lib\dotnet\Microsoft.Cognitive.CustomVision.Prediction.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Cognitive.CustomVision.Training, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Cognitive.CustomVision.Training.1.2.0\lib\dotnet\Microsoft.Cognitive.CustomVision.Training.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ProjectOxford.Vision, Version=1.0.393.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ProjectOxford.Vision.1.0.393\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Microsoft.ProjectOxford.Vision.dll</HintPath>
     </Reference>
